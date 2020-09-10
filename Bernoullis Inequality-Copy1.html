@@ -1,0 +1,2519 @@
+<!DOCTYPE html>
+<!-- saved from url=(0094)https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+    <title>Bernoullis Inequality-Copy1</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./Bernoullis Inequality-Copy1_files/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="./Bernoullis Inequality-Copy1_files/jquery.typeahead.min.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+
+<script type="text/javascript" src="./Bernoullis Inequality-Copy1_files/MathJax.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+// MathJax disabled, set as null to distingish from *missing* MathJax,
+// where it will be undefined, and should prompt a dialog later.
+window.mathjax_url = "/static/components/MathJax/MathJax.js";
+</script>
+
+<link rel="stylesheet" href="./Bernoullis Inequality-Copy1_files/bootstrap-tour.min.css" type="text/css">
+<link rel="stylesheet" href="./Bernoullis Inequality-Copy1_files/codemirror.css">
+
+
+    <link rel="stylesheet" href="./Bernoullis Inequality-Copy1_files/style.min.css" type="text/css">
+    
+
+<link rel="stylesheet" href="./Bernoullis Inequality-Copy1_files/override.css" type="text/css">
+<link rel="stylesheet" href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb" id="kernel-css" type="text/css">
+
+
+    <link rel="stylesheet" href="./Bernoullis Inequality-Copy1_files/custom.css" type="text/css">
+    <script src="./Bernoullis Inequality-Copy1_files/promise.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./Bernoullis Inequality-Copy1_files/index.js" type="text/javascript"></script>
+    <script src="./Bernoullis Inequality-Copy1_files/index(1).js" type="text/javascript"></script>
+    <script src="./Bernoullis Inequality-Copy1_files/index(2).js" type="text/javascript"></script>
+    <script src="./Bernoullis Inequality-Copy1_files/require.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+      require.config({
+          
+          urlArgs: "v=20181112043002",
+          
+          baseUrl: '/static/',
+          paths: {
+            'auth/js/main': 'auth/js/main.min',
+            custom : '/custom',
+            nbextensions : '/nbextensions',
+            kernelspecs : '/kernelspecs',
+            underscore : 'components/underscore/underscore-min',
+            backbone : 'components/backbone/backbone-min',
+            jed: 'components/jed/jed',
+            jquery: 'components/jquery/jquery.min',
+            json: 'components/requirejs-plugins/src/json',
+            text: 'components/requirejs-text/text',
+            bootstrap: 'components/bootstrap/js/bootstrap.min',
+            bootstraptour: 'components/bootstrap-tour/build/js/bootstrap-tour.min',
+            'jquery-ui': 'components/jquery-ui/ui/minified/jquery-ui.min',
+            moment: 'components/moment/min/moment-with-locales',
+            codemirror: 'components/codemirror',
+            termjs: 'components/xterm.js/xterm',
+            typeahead: 'components/jquery-typeahead/dist/jquery.typeahead.min',
+          },
+          map: { // for backward compatibility
+              "*": {
+                  "jqueryui": "jquery-ui",
+              }
+          },
+          shim: {
+            typeahead: {
+              deps: ["jquery"],
+              exports: "typeahead"
+            },
+            underscore: {
+              exports: '_'
+            },
+            backbone: {
+              deps: ["underscore", "jquery"],
+              exports: "Backbone"
+            },
+            bootstrap: {
+              deps: ["jquery"],
+              exports: "bootstrap"
+            },
+            bootstraptour: {
+              deps: ["bootstrap"],
+              exports: "Tour"
+            },
+            "jquery-ui": {
+              deps: ["jquery"],
+              exports: "$"
+            }
+          },
+          waitSeconds: 30,
+      });
+
+      require.config({
+          map: {
+              '*':{
+                'contents': 'services/contents',
+              }
+          }
+      });
+
+      // error-catching custom.js shim.
+      define("custom", function (require, exports, module) {
+          try {
+              var custom = require('custom/custom');
+              console.debug('loaded custom.js');
+              return custom;
+          } catch (e) {
+              console.error("error loading custom.js", e);
+              return {};
+          }
+      })
+
+    document.nbjs_translations = {"domain": "nbjs", "locale_data": {"nbjs": {"": {"domain": "nbjs"}}}};
+    document.documentElement.lang = navigator.language.toLowerCase();
+    </script>
+
+    
+    
+
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="services/contents" src="./Bernoullis Inequality-Copy1_files/contents.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="custom/custom" src="./Bernoullis Inequality-Copy1_files/custom.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="nbextensions/jupyter-js-widgets/extension" src="./Bernoullis Inequality-Copy1_files/extension.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="nbextensions/submit-button/main" src="./Bernoullis Inequality-Copy1_files/main.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">div.MathJax_MathML {text-align: center; margin: .75em 0px; display: block!important}
+.MathJax_MathML {font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+span.MathJax_MathML {display: inline!important}
+.MathJax_mmlExBox {display: block!important; overflow: hidden; height: 1px; width: 60ex; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0}
+[class="MJX-tex-oldstyle"] {font-family: MathJax_Caligraphic, MathJax_Caligraphic-WEB}
+[class="MJX-tex-oldstyle-bold"] {font-family: MathJax_Caligraphic, MathJax_Caligraphic-WEB; font-weight: bold}
+[class="MJX-tex-caligraphic"] {font-family: MathJax_Caligraphic, MathJax_Caligraphic-WEB}
+[class="MJX-tex-caligraphic-bold"] {font-family: MathJax_Caligraphic, MathJax_Caligraphic-WEB; font-weight: bold}
+@font-face /*1*/ {font-family: MathJax_Caligraphic-WEB; src: url('https://ikeekusbhvhenozmbzndmx.coursera-apps.org/static/components/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf')}
+@font-face /*2*/ {font-family: MathJax_Caligraphic-WEB; font-weight: bold; src: url('https://ikeekusbhvhenozmbzndmx.coursera-apps.org/static/components/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf')}
+[mathvariant="double-struck"] {font-family: MathJax_AMS, MathJax_AMS-WEB}
+[mathvariant="script"] {font-family: MathJax_Script, MathJax_Script-WEB}
+[mathvariant="fraktur"] {font-family: MathJax_Fraktur, MathJax_Fraktur-WEB}
+[mathvariant="bold-script"] {font-family: MathJax_Script, MathJax_Caligraphic-WEB; font-weight: bold}
+[mathvariant="bold-fraktur"] {font-family: MathJax_Fraktur, MathJax_Fraktur-WEB; font-weight: bold}
+[mathvariant="monospace"] {font-family: monospace}
+[mathvariant="sans-serif"] {font-family: sans-serif}
+[mathvariant="bold-sans-serif"] {font-family: sans-serif; font-weight: bold}
+[mathvariant="sans-serif-italic"] {font-family: sans-serif; font-style: italic}
+[mathvariant="sans-serif-bold-italic"] {font-family: sans-serif; font-style: italic; font-weight: bold}
+@font-face /*3*/ {font-family: MathJax_AMS-WEB; src: url('https://ikeekusbhvhenozmbzndmx.coursera-apps.org/static/components/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf')}
+@font-face /*4*/ {font-family: MathJax_Script-WEB; src: url('https://ikeekusbhvhenozmbzndmx.coursera-apps.org/static/components/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf')}
+@font-face /*5*/ {font-family: MathJax_Fraktur-WEB; src: url('https://ikeekusbhvhenozmbzndmx.coursera-apps.org/static/components/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf')}
+@font-face /*6*/ {font-family: MathJax_Fraktur-WEB; font-weight: bold; src: url('https://ikeekusbhvhenozmbzndmx.coursera-apps.org/static/components/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf')}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 0; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none; box-sizing: content-box}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">/*
+ * Copyright (c) Jupyter Development Team.
+ * Distributed under the terms of the Modified BSD License.
+ */
+
+/* Override the correction for the prompt area in https://github.com/jupyter/notebook/blob/dd41d9fd5c4f698bd7468612d877828a7eeb0e7a/IPython/html/static/notebook/less/outputarea.less#L110 */
+
+.jupyter-widgets-output-area div.output_subarea {
+    max-width: 100%;
+}
+
+/* Work-around for the bug fixed in https://github.com/jupyter/notebook/pull/2961 */
+
+.jupyter-widgets-output-area > .out_prompt_overlay {
+    display: none;
+}
+</style><style type="text/css">/*-----------------------------------------------------------------------------
+| Copyright (c) 2014-2017, PhosphorJS Contributors
+|
+| Distributed under the terms of the BSD 3-Clause License.
+|
+| The full license is in the file LICENSE, distributed with this software.
+|----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------
+| Copyright (c) 2014-2017, PhosphorJS Contributors
+|
+| Distributed under the terms of the BSD 3-Clause License.
+|
+| The full license is in the file LICENSE, distributed with this software.
+|----------------------------------------------------------------------------*/
+.p-Widget {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+.p-Widget.p-mod-hidden {
+  display: none !important;
+}
+/*-----------------------------------------------------------------------------
+| Copyright (c) 2014-2017, PhosphorJS Contributors
+|
+| Distributed under the terms of the BSD 3-Clause License.
+|
+| The full license is in the file LICENSE, distributed with this software.
+|----------------------------------------------------------------------------*/
+.p-CommandPalette {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.p-CommandPalette-search {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.p-CommandPalette-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+  overflow: auto;
+  list-style-type: none;
+}
+.p-CommandPalette-header {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.p-CommandPalette-itemShortcut {
+  float: right;
+}
+.p-CommandPalette-itemLabel {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/*-----------------------------------------------------------------------------
+| Copyright (c) 2014-2017, PhosphorJS Contributors
+|
+| Distributed under the terms of the BSD 3-Clause License.
+|
+| The full license is in the file LICENSE, distributed with this software.
+|----------------------------------------------------------------------------*/
+.p-DockPanel {
+  z-index: 0;
+}
+.p-DockPanel-widget {
+  z-index: 0;
+}
+.p-DockPanel-tabBar {
+  z-index: 1;
+}
+.p-DockPanel-handle {
+  z-index: 2;
+}
+.p-DockPanel-handle.p-mod-hidden {
+  display: none !important;
+}
+.p-DockPanel-handle:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+}
+.p-DockPanel-handle[data-orientation='horizontal'] {
+  cursor: ew-resize;
+}
+.p-DockPanel-handle[data-orientation='vertical'] {
+  cursor: ns-resize;
+}
+.p-DockPanel-handle[data-orientation='horizontal']:after {
+  left: 50%;
+  min-width: 8px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.p-DockPanel-handle[data-orientation='vertical']:after {
+  top: 50%;
+  min-height: 8px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.p-DockPanel-overlay {
+  z-index: 3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  pointer-events: none;
+}
+.p-DockPanel-overlay.p-mod-hidden {
+  display: none !important;
+}
+/*-----------------------------------------------------------------------------
+| Copyright (c) 2014-2017, PhosphorJS Contributors
+|
+| Distributed under the terms of the BSD 3-Clause License.
+|
+| The full license is in the file LICENSE, distributed with this software.
+|----------------------------------------------------------------------------*/
+.p-Menu {
+  z-index: 10000;
+  position: absolute;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.p-Menu-content {
+  margin: 0;
+  padding: 0;
+  display: table;
+  list-style-type: none;
+}
+.p-Menu-item {
+  display: table-row;
+}
+.p-Menu-item.p-mod-hidden,
+.p-Menu-item.p-mod-collapsed {
+  display: none !important;
+}
+.p-Menu-itemIcon,
+.p-Menu-itemSubmenuIcon {
+  display: table-cell;
+  text-align: center;
+}
+.p-Menu-itemLabel {
+  display: table-cell;
+  text-align: left;
+}
+.p-Menu-itemShortcut {
+  display: table-cell;
+  text-align: right;
+}
+/*-----------------------------------------------------------------------------
+| Copyright (c) 2014-2017, PhosphorJS Contributors
+|
+| Distributed under the terms of the BSD 3-Clause License.
+|
+| The full license is in the file LICENSE, distributed with this software.
+|----------------------------------------------------------------------------*/
+.p-MenuBar {
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.p-MenuBar-content {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style-type: none;
+}
+.p-MenuBar-item {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.p-MenuBar-itemIcon,
+.p-MenuBar-itemLabel {
+  display: inline-block;
+}
+/*-----------------------------------------------------------------------------
+| Copyright (c) 2014-2017, PhosphorJS Contributors
+|
+| Distributed under the terms of the BSD 3-Clause License.
+|
+| The full license is in the file LICENSE, distributed with this software.
+|----------------------------------------------------------------------------*/
+.p-ScrollBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.p-ScrollBar[data-orientation='horizontal'] {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.p-ScrollBar[data-orientation='vertical'] {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.p-ScrollBar-button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.p-ScrollBar-track {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.p-ScrollBar-thumb {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+}
+/*-----------------------------------------------------------------------------
+| Copyright (c) 2014-2017, PhosphorJS Contributors
+|
+| Distributed under the terms of the BSD 3-Clause License.
+|
+| The full license is in the file LICENSE, distributed with this software.
+|----------------------------------------------------------------------------*/
+.p-SplitPanel-child {
+  z-index: 0;
+}
+.p-SplitPanel-handle {
+  z-index: 1;
+}
+.p-SplitPanel-handle.p-mod-hidden {
+  display: none !important;
+}
+.p-SplitPanel-handle:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+}
+.p-SplitPanel[data-orientation='horizontal'] > .p-SplitPanel-handle {
+  cursor: ew-resize;
+}
+.p-SplitPanel[data-orientation='vertical'] > .p-SplitPanel-handle {
+  cursor: ns-resize;
+}
+.p-SplitPanel[data-orientation='horizontal'] > .p-SplitPanel-handle:after {
+  left: 50%;
+  min-width: 8px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.p-SplitPanel[data-orientation='vertical'] > .p-SplitPanel-handle:after {
+  top: 50%;
+  min-height: 8px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+/*-----------------------------------------------------------------------------
+| Copyright (c) 2014-2017, PhosphorJS Contributors
+|
+| Distributed under the terms of the BSD 3-Clause License.
+|
+| The full license is in the file LICENSE, distributed with this software.
+|----------------------------------------------------------------------------*/
+.p-TabBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.p-TabBar[data-orientation='horizontal'] {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.p-TabBar[data-orientation='vertical'] {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.p-TabBar-content {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  list-style-type: none;
+}
+.p-TabBar[data-orientation='horizontal'] > .p-TabBar-content {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.p-TabBar[data-orientation='vertical'] > .p-TabBar-content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.p-TabBar-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+}
+.p-TabBar-tabIcon,
+.p-TabBar-tabCloseIcon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.p-TabBar-tabLabel {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.p-TabBar-tab.p-mod-hidden {
+  display: none !important;
+}
+.p-TabBar.p-mod-dragging .p-TabBar-tab {
+  position: relative;
+}
+.p-TabBar.p-mod-dragging[data-orientation='horizontal'] .p-TabBar-tab {
+  left: 0;
+  -webkit-transition: left 150ms ease;
+  transition: left 150ms ease;
+}
+.p-TabBar.p-mod-dragging[data-orientation='vertical'] .p-TabBar-tab {
+  top: 0;
+  -webkit-transition: top 150ms ease;
+  transition: top 150ms ease;
+}
+.p-TabBar.p-mod-dragging .p-TabBar-tab.p-mod-dragging {
+  -webkit-transition: none;
+  transition: none;
+}
+/*-----------------------------------------------------------------------------
+| Copyright (c) 2014-2017, PhosphorJS Contributors
+|
+| Distributed under the terms of the BSD 3-Clause License.
+|
+| The full license is in the file LICENSE, distributed with this software.
+|----------------------------------------------------------------------------*/
+.p-TabPanel-tabBar {
+  z-index: 1;
+}
+.p-TabPanel-stackedPanel {
+  z-index: 0;
+}
+</style><style type="text/css">/* Copyright (c) Jupyter Development Team.
+ * Distributed under the terms of the Modified BSD License.
+ */
+
+ .jupyter-widgets-disconnected::before {
+    content: "\F127"; /* chain-broken */
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #d9534f;
+    padding: 3px;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+}
+</style><style type="text/css">/* Copyright (c) Jupyter Development Team.
+ * Distributed under the terms of the Modified BSD License.
+ */
+
+ /* We import all of these together in a single css file because the Webpack
+loader sees only one file at a time. This allows postcss to see the variable
+definitions when they are used. */
+
+ /*-----------------------------------------------------------------------------
+| Copyright (c) Jupyter Development Team.
+| Distributed under the terms of the Modified BSD License.
+|----------------------------------------------------------------------------*/
+
+ /*
+This file is copied from the JupyterLab project to define default styling for
+when the widget styling is compiled down to eliminate CSS variables. We make one
+change - we comment out the font import below.
+*/
+
+ /**
+ * The material design colors are adapted from google-material-color v1.2.6
+ * https://github.com/danlevan/google-material-color
+ * https://github.com/danlevan/google-material-color/blob/f67ca5f4028b2f1b34862f64b0ca67323f91b088/dist/palette.var.css
+ *
+ * The license for the material design color CSS variables is as follows (see
+ * https://github.com/danlevan/google-material-color/blob/f67ca5f4028b2f1b34862f64b0ca67323f91b088/LICENSE)
+ *
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2014 Dan Le Van
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+ /*
+The following CSS variables define the main, public API for styling JupyterLab.
+These variables should be used by all plugins wherever possible. In other
+words, plugins should not define custom colors, sizes, etc unless absolutely
+necessary. This enables users to change the visual theme of JupyterLab
+by changing these variables.
+
+Many variables appear in an ordered sequence (0,1,2,3). These sequences
+are designed to work well together, so for example, `--jp-border-color1` should
+be used with `--jp-layout-color1`. The numbers have the following meanings:
+
+* 0: super-primary, reserved for special emphasis
+* 1: primary, most important under normal situations
+* 2: secondary, next most important under normal situations
+* 3: tertiary, next most important under normal situations
+
+Throughout JupyterLab, we are mostly following principles from Google's
+Material Design when selecting colors. We are not, however, following
+all of MD as it is not optimized for dense, information rich UIs.
+*/
+
+ /*
+ * Optional monospace font for input/output prompt.
+ */
+
+ /* Commented out in ipywidgets since we don't need it. */
+
+ /* @import url('https://fonts.googleapis.com/css?family=Roboto+Mono'); */
+
+ /*
+ * Added for compabitility with output area
+ */
+
+ :root {
+
+  /* Borders
+
+  The following variables, specify the visual styling of borders in JupyterLab.
+   */
+
+  /* UI Fonts
+
+  The UI font CSS variables are used for the typography all of the JupyterLab
+  user interface elements that are not directly user generated content.
+  */ /* Base font size */ /* Ensures px perfect FontAwesome icons */
+
+  /* Use these font colors against the corresponding main layout colors.
+     In a light theme, these go from dark to light.
+  */
+
+  /* Use these against the brand/accent/warn/error colors.
+     These will typically go from light to darker, in both a dark and light theme
+   */
+
+  /* Content Fonts
+
+  Content font variables are used for typography of user generated content.
+  */ /* Base font size */
+
+
+  /* Layout
+
+  The following are the main layout colors use in JupyterLab. In a light
+  theme these would go from light to dark.
+  */
+
+  /* Brand/accent */
+
+  /* State colors (warn, error, success, info) */
+
+  /* Cell specific styles */
+  /* A custom blend of MD grey and blue 600
+   * See https://meyerweb.com/eric/tools/color-blend/#546E7A:1E88E5:5:hex */
+  /* A custom blend of MD grey and orange 600
+   * https://meyerweb.com/eric/tools/color-blend/#546E7A:F4511E:5:hex */
+
+  /* Notebook specific styles */
+
+  /* Console specific styles */
+
+  /* Toolbar specific styles */
+}
+
+ /* Copyright (c) Jupyter Development Team.
+ * Distributed under the terms of the Modified BSD License.
+ */
+
+ /*
+ * We assume that the CSS variables in
+ * https://github.com/jupyterlab/jupyterlab/blob/master/src/default-theme/variables.css
+ * have been defined.
+ */
+
+ /* This file has code derived from PhosphorJS CSS files, as noted below. The license for this PhosphorJS code is:
+
+Copyright (c) 2014-2017, PhosphorJS Contributors
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+*/
+
+ /*
+ * The following section is derived from https://github.com/phosphorjs/phosphor/blob/23b9d075ebc5b73ab148b6ebfc20af97f85714c4/packages/widgets/style/tabbar.css 
+ * We've scoped the rules so that they are consistent with exactly our code.
+ */
+
+ .jupyter-widgets.widget-tab > .p-TabBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar[data-orientation='horizontal'] {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar[data-orientation='vertical'] {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar > .p-TabBar-content {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  list-style-type: none;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar[data-orientation='horizontal'] > .p-TabBar-content {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar[data-orientation='vertical'] > .p-TabBar-content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tabIcon,
+.jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tabCloseIcon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tabLabel {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tab.p-mod-hidden {
+  display: none !important;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar.p-mod-dragging .p-TabBar-tab {
+  position: relative;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar.p-mod-dragging[data-orientation='horizontal'] .p-TabBar-tab {
+  left: 0;
+  -webkit-transition: left 150ms ease;
+  transition: left 150ms ease;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar.p-mod-dragging[data-orientation='vertical'] .p-TabBar-tab {
+  top: 0;
+  -webkit-transition: top 150ms ease;
+  transition: top 150ms ease;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar.p-mod-dragging .p-TabBar-tab.p-mod-dragging {
+  -webkit-transition: none;
+  transition: none;
+}
+
+ /* End tabbar.css */
+
+ :root { /* margin between inline elements */
+
+    /* From Material Design Lite */
+}
+
+ .jupyter-widgets {
+    margin: 2px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    color: black;
+    overflow: visible;
+}
+
+ .jupyter-widgets.jupyter-widgets-disconnected::before {
+    line-height: 28px;
+    height: 28px;
+}
+
+ .jp-Output-result > .jupyter-widgets {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+ /* vbox and hbox */
+
+ .widget-inline-hbox {
+    /* Horizontal widgets */
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+}
+
+ .widget-inline-vbox {
+    /* Vertical Widgets */
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+ .widget-box {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    overflow: auto;
+}
+
+ .widget-hbox {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+}
+
+ .widget-vbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+ /* General Button Styling */
+
+ .jupyter-button {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+
+    height: 28px;
+    border: 0px solid;
+    line-height: 28px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+
+    color: rgba(0, 0, 0, .8);
+    background-color: #EEEEEE;
+    border-color: #E0E0E0;
+    border: none;
+}
+
+ .jupyter-button i.fa {
+    margin-right: 4px;
+    pointer-events: none;
+}
+
+ .jupyter-button:empty:before {
+    content: "\200B"; /* zero-width space */
+}
+
+ .jupyter-widgets.jupyter-button:disabled {
+    opacity: 0.6;
+}
+
+ .jupyter-button i.fa.center {
+    margin-right: 0;
+}
+
+ .jupyter-button:hover:enabled, .jupyter-button:focus:enabled {
+    /* MD Lite 2dp shadow */
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),
+                0 3px 1px -2px rgba(0, 0, 0, .2),
+                0 1px 5px 0 rgba(0, 0, 0, .12);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),
+                0 3px 1px -2px rgba(0, 0, 0, .2),
+                0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+ .jupyter-button:active, .jupyter-button.mod-active {
+    /* MD Lite 4dp shadow */
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14),
+                0 1px 10px 0 rgba(0, 0, 0, .12),
+                0 2px 4px -1px rgba(0, 0, 0, .2);
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14),
+                0 1px 10px 0 rgba(0, 0, 0, .12),
+                0 2px 4px -1px rgba(0, 0, 0, .2);
+    color: rgba(0, 0, 0, .8);
+    background-color: #BDBDBD;
+}
+
+ .jupyter-button:focus:enabled {
+    outline: 1px solid #64B5F6;
+}
+
+ /* Button "Primary" Styling */
+
+ .jupyter-button.mod-primary {
+    color: rgba(255, 255, 255, 1.0);
+    background-color: #2196F3;
+}
+
+ .jupyter-button.mod-primary.mod-active {
+    color: rgba(255, 255, 255, 1);
+    background-color: #1976D2;
+}
+
+ .jupyter-button.mod-primary:active {
+    color: rgba(255, 255, 255, 1);
+    background-color: #1976D2;
+}
+
+ /* Button "Success" Styling */
+
+ .jupyter-button.mod-success {
+    color: rgba(255, 255, 255, 1.0);
+    background-color: #4CAF50;
+}
+
+ .jupyter-button.mod-success.mod-active {
+    color: rgba(255, 255, 255, 1);
+    background-color: #388E3C;
+ }
+
+ .jupyter-button.mod-success:active {
+    color: rgba(255, 255, 255, 1);
+    background-color: #388E3C;
+ }
+
+ /* Button "Info" Styling */
+
+ .jupyter-button.mod-info {
+    color: rgba(255, 255, 255, 1.0);
+    background-color: #00BCD4;
+}
+
+ .jupyter-button.mod-info.mod-active {
+    color: rgba(255, 255, 255, 1);
+    background-color: #0097A7;
+}
+
+ .jupyter-button.mod-info:active {
+    color: rgba(255, 255, 255, 1);
+    background-color: #0097A7;
+}
+
+ /* Button "Warning" Styling */
+
+ .jupyter-button.mod-warning {
+    color: rgba(255, 255, 255, 1.0);
+    background-color: #FF9800;
+}
+
+ .jupyter-button.mod-warning.mod-active {
+    color: rgba(255, 255, 255, 1);
+    background-color: #F57C00;
+}
+
+ .jupyter-button.mod-warning:active {
+    color: rgba(255, 255, 255, 1);
+    background-color: #F57C00;
+}
+
+ /* Button "Danger" Styling */
+
+ .jupyter-button.mod-danger {
+    color: rgba(255, 255, 255, 1.0);
+    background-color: #F44336;
+}
+
+ .jupyter-button.mod-danger.mod-active {
+    color: rgba(255, 255, 255, 1);
+    background-color: #D32F2F;
+}
+
+ .jupyter-button.mod-danger:active {
+    color: rgba(255, 255, 255, 1);
+    background-color: #D32F2F;
+}
+
+ /* Widget Button*/
+
+ .widget-button, .widget-toggle-button {
+    width: 148px;
+}
+
+ /* Widget Label Styling */
+
+ /* Override Bootstrap label css */
+
+ .jupyter-widgets label {
+    margin-bottom: 0;
+    margin-bottom: initial;
+}
+
+ .widget-label-basic {
+    /* Basic Label */
+    color: black;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 28px;
+}
+
+ .widget-label {
+    /* Label */
+    color: black;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 28px;
+}
+
+ .widget-inline-hbox .widget-label {
+    /* Horizontal Widget Label */
+    color: black;
+    text-align: right;
+    margin-right: 8px;
+    width: 80px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+}
+
+ .widget-inline-vbox .widget-label {
+    /* Vertical Widget Label */
+    color: black;
+    text-align: center;
+    line-height: 28px;
+}
+
+ /* Widget Readout Styling */
+
+ .widget-readout {
+    color: black;
+    font-size: 13px;
+    height: 28px;
+    line-height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+ .widget-readout.overflow {
+    /* Overflowing Readout */
+
+    /* From Material Design Lite
+        shadow-key-umbra-opacity: 0.2;
+        shadow-key-penumbra-opacity: 0.14;
+        shadow-ambient-shadow-opacity: 0.12;
+     */
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .2),
+                        0 3px 1px -2px rgba(0, 0, 0, .14),
+                        0 1px 5px 0 rgba(0, 0, 0, .12);
+
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .2),
+                0 3px 1px -2px rgba(0, 0, 0, .14),
+                0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+ .widget-inline-hbox .widget-readout {
+    /* Horizontal Readout */
+    text-align: center;
+    max-width: 148px;
+    min-width: 72px;
+    margin-left: 4px;
+}
+
+ .widget-inline-vbox .widget-readout {
+    /* Vertical Readout */
+    margin-top: 4px;
+    /* as wide as the widget */
+    width: inherit;
+}
+
+ /* Widget Checkbox Styling */
+
+ .widget-checkbox {
+    width: 300px;
+    height: 28px;
+    line-height: 28px;
+}
+
+ .widget-checkbox input[type="checkbox"] {
+    margin: 0px 8px 0px 0px;
+    line-height: 28px;
+    font-size: large;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -ms-flex-item-align: center;
+        align-self: center;
+}
+
+ /* Widget Valid Styling */
+
+ .widget-valid {
+    height: 28px;
+    line-height: 28px;
+    width: 148px;
+    font-size: 13px;
+}
+
+ .widget-valid i:before {
+    line-height: 28px;
+    margin-right: 4px;
+    margin-left: 4px;
+
+    /* from the fa class in FontAwesome: https://github.com/FortAwesome/Font-Awesome/blob/49100c7c3a7b58d50baa71efef11af41a66b03d3/css/font-awesome.css#L14 */
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+ .widget-valid.mod-valid i:before {
+    content: "\F00C";
+    color: green;
+}
+
+ .widget-valid.mod-invalid i:before {
+    content: "\F00D";
+    color: red;
+}
+
+ .widget-valid.mod-valid .widget-valid-readout {
+    display: none;
+}
+
+ /* Widget Text and TextArea Stying */
+
+ .widget-textarea, .widget-text {
+    width: 300px;
+}
+
+ .widget-text input[type="text"], .widget-text input[type="number"]{
+    height: 28px;
+    line-height: 28px;
+}
+
+ .widget-text input[type="text"]:disabled, .widget-text input[type="number"]:disabled, .widget-textarea textarea:disabled {
+    opacity: 0.6;
+}
+
+ .widget-text input[type="text"], .widget-text input[type="number"], .widget-textarea textarea {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid #9E9E9E;
+    background-color: white;
+    color: rgba(0, 0, 0, .8);
+    font-size: 13px;
+    padding: 4px 8px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    min-width: 0; /* This makes it possible for the flexbox to shrink this input */
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    outline: none !important;
+}
+
+ .widget-textarea textarea {
+    height: inherit;
+    width: inherit;
+}
+
+ .widget-text input:focus, .widget-textarea textarea:focus {
+    border-color: #64B5F6;
+}
+
+ /* Widget Slider */
+
+ .widget-slider .ui-slider {
+    /* Slider Track */
+    border: 1px solid #BDBDBD;
+    background: #BDBDBD;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+    border-radius: 0px;
+}
+
+ .widget-slider .ui-slider .ui-slider-handle {
+    /* Slider Handle */
+    outline: none !important; /* focused slider handles are colored - see below */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #9E9E9E;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    z-index: 1;
+    background-image: none; /* Override jquery-ui */
+}
+
+ /* Override jquery-ui */
+
+ .widget-slider .ui-slider .ui-slider-handle:hover, .widget-slider .ui-slider .ui-slider-handle:focus {
+    background-color: #2196F3;
+    border: 1px solid #2196F3;
+}
+
+ .widget-slider .ui-slider .ui-slider-handle:active {
+    background-color: #2196F3;
+    border-color: #2196F3;
+    z-index: 2;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+}
+
+ .widget-slider  .ui-slider .ui-slider-range {
+    /* Interval between the two specified value of a double slider */
+    position: absolute;
+    background: #2196F3;
+    z-index: 0;
+}
+
+ /* Shapes of Slider Handles */
+
+ .widget-hslider .ui-slider .ui-slider-handle {
+    width: 16px;
+    height: 16px;
+    margin-top: -7px;
+    margin-left: -7px;
+    border-radius: 50%;
+    top: 0;
+}
+
+ .widget-vslider .ui-slider .ui-slider-handle {
+    width: 16px;
+    height: 16px;
+    margin-bottom: -7px;
+    margin-left: -7px;
+    border-radius: 50%;
+    left: 0;
+}
+
+ .widget-hslider .ui-slider .ui-slider-range {
+    height: 8px;
+    margin-top: -3px;
+}
+
+ .widget-vslider .ui-slider .ui-slider-range {
+    width: 8px;
+    margin-left: -3px;
+}
+
+ /* Horizontal Slider */
+
+ .widget-hslider {
+    width: 300px;
+    height: 28px;
+    line-height: 28px;
+
+    /* Override the align-items baseline. This way, the description and readout
+    still seem to align their baseline properly, and we don't have to have
+    align-self: stretch in the .slider-container. */
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+ .widgets-slider .slider-container {
+    overflow: visible;
+}
+
+ .widget-hslider .slider-container {
+    height: 28px;
+    margin-left: 6px;
+    margin-right: 6px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 148px;
+            flex: 1 1 148px;
+}
+
+ .widget-hslider .ui-slider {
+    /* Inner, invisible slide div */
+    height: 4px;
+    margin-top: 12px;
+    width: 100%;
+}
+
+ /* Vertical Slider */
+
+ .widget-vbox .widget-label {
+    height: 28px;
+    line-height: 28px;
+}
+
+ .widget-vslider {
+    /* Vertical Slider */
+    height: 200px;
+    width: 72px;
+}
+
+ .widget-vslider .slider-container {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 148px;
+            flex: 1 1 148px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+ .widget-vslider .ui-slider-vertical {
+    /* Inner, invisible slide div */
+    width: 4px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ /* Widget Progress Styling */
+
+ .progress-bar {
+    -webkit-transition: none;
+    transition: none;
+}
+
+ .progress-bar {
+    height: 28px;
+}
+
+ .progress-bar {
+    background-color: #2196F3;
+}
+
+ .progress-bar-success {
+    background-color: #4CAF50;
+}
+
+ .progress-bar-info {
+    background-color: #00BCD4;
+}
+
+ .progress-bar-warning {
+    background-color: #FF9800;
+}
+
+ .progress-bar-danger {
+    background-color: #F44336;
+}
+
+ .progress {
+    background-color: #EEEEEE;
+    border: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+ /* Horisontal Progress */
+
+ .widget-hprogress {
+    /* Progress Bar */
+    height: 28px;
+    line-height: 28px;
+    width: 300px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+
+}
+
+ .widget-hprogress .progress {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    /* Override bootstrap style */
+    height: auto;
+    height: initial;
+}
+
+ /* Vertical Progress */
+
+ .widget-vprogress {
+    height: 200px;
+    width: 72px;
+}
+
+ .widget-vprogress .progress {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    width: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+ /* Select Widget Styling */
+
+ .widget-dropdown {
+    height: 28px;
+    width: 300px;
+    line-height: 28px;
+}
+
+ .widget-dropdown > select {
+    border: 1px solid #9E9E9E;
+    border-radius: 0;
+    height: inherit;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 148px;
+            flex: 1 1 148px;
+    min-width: 0; /* This makes it possible for the flexbox to shrink this input */
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: none !important;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background-color: white;
+    color: rgba(0, 0, 0, .8);
+    font-size: 13px;
+    vertical-align: top;
+    padding-left: 8px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+    background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: right center;
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxOCAxOCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTggMTg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDpub25lO30KPC9zdHlsZT4KPHBhdGggZD0iTTUuMiw1LjlMOSw5LjdsMy44LTMuOGwxLjIsMS4ybC00LjksNWwtNC45LTVMNS4yLDUuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTAtMC42aDE4djE4SDBWLTAuNnoiLz4KPC9zdmc+Cg");
+}
+
+ .widget-dropdown > select:focus {
+    border-color: #64B5F6;
+}
+
+ .widget-dropdown > select:disabled {
+    opacity: 0.6;
+}
+
+ /* To disable the dotted border in Firefox around select controls.
+   See http://stackoverflow.com/a/18853002 */
+
+ .widget-dropdown > select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+ /* Select and SelectMultiple */
+
+ .widget-select {
+    width: 300px;
+    line-height: 28px;
+
+    /* Because Firefox defines the baseline of a select as the bottom of the
+    control, we align the entire control to the top and add padding to the
+    select to get an approximate first line baseline alignment. */
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+}
+
+ .widget-select > select {
+    border: 1px solid #9E9E9E;
+    background-color: white;
+    color: rgba(0, 0, 0, .8);
+    font-size: 13px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 148px;
+            flex: 1 1 148px;
+    outline: none !important;
+    overflow: auto;
+    height: inherit;
+
+    /* Because Firefox defines the baseline of a select as the bottom of the
+    control, we align the entire control to the top and add padding to the
+    select to get an approximate first line baseline alignment. */
+    padding-top: 5px;
+}
+
+ .widget-select > select:focus {
+    border-color: #64B5F6;
+}
+
+ .wiget-select > select > option {
+    padding-left: 4px;
+    line-height: 28px;
+    /* line-height doesn't work on some browsers for select options */
+    padding-top: calc(28px - var(--jp-widgets-font-size) / 2);
+    padding-bottom: calc(28px - var(--jp-widgets-font-size) / 2);
+}
+
+ /* Toggle Buttons Styling */
+
+ .widget-toggle-buttons {
+    line-height: 28px;
+}
+
+ .widget-toggle-buttons .widget-toggle-button {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+ .widget-toggle-buttons .jupyter-button:disabled {
+    opacity: 0.6;
+}
+
+ /* Radio Buttons Styling */
+
+ .widget-radio {
+    width: 300px;
+    line-height: 28px;
+}
+
+ .widget-radio-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    margin-bottom: 8px;
+}
+
+ .widget-radio-box label {
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+}
+
+ .widget-radio-box input {
+    height: 20px;
+    line-height: 20px;
+    margin: 0 8px 0 1px;
+    float: left;
+}
+
+ /* Color Picker Styling */
+
+ .widget-colorpicker {
+    width: 300px;
+    height: 28px;
+    line-height: 28px;
+}
+
+ .widget-colorpicker > .widget-colorpicker-input {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    min-width: 72px;
+}
+
+ .widget-colorpicker input[type="color"] {
+    width: 28px;
+    height: 28px;
+    padding: 0 2px; /* make the color square actually square on Chrome on OS X */
+    background: white;
+    color: rgba(0, 0, 0, .8);
+    border: 1px solid #9E9E9E;
+    border-left: none;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    outline: none !important;
+}
+
+ .widget-colorpicker.concise input[type="color"] {
+    border-left: 1px solid #9E9E9E;
+}
+
+ .widget-colorpicker input[type="color"]:focus, .widget-colorpicker input[type="text"]:focus {
+    border-color: #64B5F6;
+}
+
+ .widget-colorpicker input[type="text"] {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    outline: none !important;
+    height: 28px;
+    line-height: 28px;
+    background: white;
+    color: rgba(0, 0, 0, .8);
+    border: 1px solid #9E9E9E;
+    font-size: 13px;
+    padding: 4px 8px;
+    min-width: 0; /* This makes it possible for the flexbox to shrink this input */
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+ .widget-colorpicker input[type="text"]:disabled {
+    opacity: 0.6;
+}
+
+ /* Date Picker Styling */
+
+ .widget-datepicker {
+    width: 300px;
+    height: 28px;
+    line-height: 28px;
+}
+
+ .widget-datepicker input[type="date"] {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    min-width: 0; /* This makes it possible for the flexbox to shrink this input */
+    outline: none !important;
+    height: 28px;
+    border: 1px solid #9E9E9E;
+    background-color: white;
+    color: rgba(0, 0, 0, .8);
+    font-size: 13px;
+    padding: 4px 8px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+ .widget-datepicker input[type="date"]:focus {
+    border-color: #64B5F6;
+}
+
+ .widget-datepicker input[type="date"]:invalid {
+    border-color: #FF9800;
+}
+
+ .widget-datepicker input[type="date"]:disabled {
+    opacity: 0.6;
+}
+
+ /* Play Widget */
+
+ .widget-play {
+    width: 148px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+}
+
+ .widget-play .jupyter-button {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    height: auto;
+}
+
+ .widget-play .jupyter-button:disabled {
+    opacity: 0.6;
+}
+
+ /* Tab Widget */
+
+ .jupyter-widgets.widget-tab {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar {
+    /* Necessary so that a tab can be shifted down to overlay the border of the box below. */
+    overflow-x: visible;
+    overflow-y: visible;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar > .p-TabBar-content {
+    /* Make sure that the tab grows from bottom up */
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    min-width: 0;
+    min-height: 0;
+}
+
+ .jupyter-widgets.widget-tab > .widget-tab-contents {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    background: white;
+    color: rgba(0, 0, 0, .8);
+    border: 1px solid #9E9E9E;
+    padding: 15px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    overflow: auto;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar {
+    font: 13px Helvetica, Arial, sans-serif;
+    min-height: 25px;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tab {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 144px;
+            flex: 0 1 144px;
+    min-width: 35px;
+    min-height: 25px;
+    line-height: 24px;
+    margin-left: -1px;
+    padding: 0px 10px;
+    background: #EEEEEE;
+    color: rgba(0, 0, 0, .5);
+    border: 1px solid #9E9E9E;
+    border-bottom: none;
+    position: relative;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tab.p-mod-current {
+    color: rgba(0, 0, 0, 1.0);
+    /* We want the background to match the tab content background */
+    background: white;
+    min-height: 26px;
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px);
+    overflow: visible;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tab.p-mod-current:before {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    content: '';
+    height: 2px;
+    width: calc(100% + 2px);
+    background: #2196F3;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tab:first-child {
+    margin-left: 0;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tab:hover:not(.p-mod-current) {
+    background: white;
+    color: rgba(0, 0, 0, .8);
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-mod-closable > .p-TabBar-tabCloseIcon {
+    margin-left: 4px;
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-mod-closable > .p-TabBar-tabCloseIcon:before {
+    font-family: FontAwesome;
+    content: '\F00D'; /* close */
+}
+
+ .jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tabIcon,
+.jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tabLabel,
+.jupyter-widgets.widget-tab > .p-TabBar .p-TabBar-tabCloseIcon {
+    line-height: 24px;
+}
+
+ /* Accordion Widget */
+
+ .p-Collapse {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+}
+
+ .p-Collapse-header {
+    padding: 4px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, .5);
+    background-color: #EEEEEE;
+    border: 1px solid #9E9E9E;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+ .p-Collapse-header:hover {
+    background-color: white;
+    color: rgba(0, 0, 0, .8);
+}
+
+ .p-Collapse-open > .p-Collapse-header {
+    background-color: white;
+    color: rgba(0, 0, 0, 1.0);
+    cursor: default;
+    border-bottom: none;
+}
+
+ .p-Collapse .p-Collapse-header::before {
+    content: '\F0DA\A0';  /* caret-right, non-breaking space */
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+ .p-Collapse-open > .p-Collapse-header::before {
+    content: '\F0D7\A0'; /* caret-down, non-breaking space */
+}
+
+ .p-Collapse-contents {
+    padding: 15px;
+    background-color: white;
+    color: rgba(0, 0, 0, .8);
+    border-left: 1px solid #9E9E9E;
+    border-right: 1px solid #9E9E9E;
+    border-bottom: 1px solid #9E9E9E;
+    overflow: auto;
+}
+
+ .p-Accordion {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+}
+
+ .p-Accordion .p-Collapse {
+    margin-bottom: 0;
+}
+
+ .p-Accordion .p-Collapse + .p-Collapse {
+    margin-top: 4px;
+}
+
+ /* HTML widget */
+
+ .widget-html, .widget-htmlmath {
+    font-size: 13px;
+}
+
+ .widget-html > .widget-html-content, .widget-htmlmath > .widget-html-content {
+    /* Fill out the area in the HTML widget */
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    /* Makes sure the baseline is still aligned with other elements */
+    line-height: 28px;
+    /* Make it possible to have absolutely-positioned elements in the html */
+    position: relative;
+}
+</style><link id="favicon" type="image/x-icon" rel="shortcut icon" href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/static/base/images/favicon-notebook.ico"></head>
+
+<body class="notebook_app command_mode" data-base-url="/" data-ws-url="" data-notebook-name="Bernoullis%20Inequality-Copy1.ipynb" data-notebook-path="Bernoullis%20Inequality-Copy1.ipynb" dir="ltr"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+<noscript>
+    <div id='noscript'>
+      Jupyter Notebook requires JavaScript.<br>
+      Please enable it to proceed. 
+  </div>
+</noscript>
+
+<div id="header" style="display: block;">
+  <div id="header-container" class="container">
+  <div id="ipython_notebook" class="nav navbar-brand"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/tree" title="dashboard">
+      <img src="./Bernoullis Inequality-Copy1_files/logo.png" alt="Jupyter Notebook">
+  </a></div>
+
+  
+
+
+<span id="save_widget" class="save_widget">
+    <span id="notebook_name" class="filename">Bernoullis Inequality-Copy1</span>
+    <span class="checkpoint_status" title="Sun, Nov 11, 2018 10:31 PM">Last Checkpoint: a few seconds ago</span>
+    <span class="autosave_status">(autosaved)</span>
+</span>
+
+<span id="kernel_logo_widget">
+  
+  <img class="current_kernel_logo" alt="Current Kernel Logo" src="./Bernoullis Inequality-Copy1_files/logo-64x64.png" title="Python 2" style="display: inline;">
+  
+</span>
+
+
+  
+  
+  
+  
+
+    <span id="login_widget">
+      
+    </span>
+
+  
+
+  
+  
+  </div>
+  <div class="header-bar"></div>
+
+  
+<div id="menubar-container" class="container">
+<div id="menubar">
+    <div id="menus" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <button type="button" class="btn btn-default navbar-btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <i class="fa fa-bars"></i>
+              <span class="navbar-text">Menu</span>
+            </button>
+            <p id="kernel_indicator" class="navbar-text indicator_area">
+              <span class="kernel_indicator_name">Python 2</span>
+              <i id="kernel_indicator_icon" class="kernel_idle_icon" title="Kernel Idle"></i>
+            </p>
+            <i id="readonly-indicator" class="navbar-text" title="This notebook is read-only" style="display: none;">
+                <span class="fa-stack">
+                    <i class="fa fa-save fa-stack-1x"></i>
+                    <i class="fa fa-ban fa-stack-2x text-danger"></i>
+                </span>
+            </i>
+            <i id="modal_indicator" class="navbar-text modal_indicator" title="Command Mode"></i>
+            <span id="notification_area"><div id="notification_kernel" class="notification_widget btn btn-xs navbar-btn undefined info" style="display: none;"><span></span></div><div id="notification_notebook" class="notification_widget btn btn-xs navbar-btn" style="display: none;"><span></span></div><div id="notification_trusted" class="notification_widget btn btn-xs navbar-btn" style=""><span title="Javascript disabled for notebook display">Not Trusted</span></div><div id="notification_widgets" class="notification_widget btn btn-xs navbar-btn" style="display: none;"><span></span></div></span>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="dropdown"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">File</a>
+                    <ul id="file_menu" class="dropdown-menu">
+                        <li id="new_notebook" class="dropdown-submenu">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">New Notebook</a>
+                            <ul class="dropdown-menu" id="menu-new-notebook-submenu"><li id="new-notebook-submenu-python2"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Python 2</a></li><li class="divider"></li><li id="new-notebook-submenu-python3"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Python 3</a></li><li id="new-notebook-submenu-ir"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">R</a></li></ul>
+                        </li>
+                        <li id="open_notebook" title="Opens a new window with the Dashboard view">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Open...</a></li>
+                        <!-- <hr/> -->
+                        <li class="divider"></li>
+                        <li id="copy_notebook" title="Open a copy of this notebook&#39;s contents and start a new kernel">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Make a Copy...</a></li>
+                        <li id="save_notebook_as" title="Save a copy of the notebook&#39;s contents and start a new kernel">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Save as...</a></li>
+                        <li id="rename_notebook"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Rename...</a></li>
+                        <li id="save_checkpoint"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Save and Checkpoint</a></li>
+                        <!-- <hr/> -->
+                        <li class="divider"></li>
+                        <li id="restore_checkpoint" class="dropdown-submenu"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Revert to Checkpoint</a>
+                          <ul class="dropdown-menu"><li><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Sunday, November 11, 2018 10:31 PM</a></li></ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li id="print_preview"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Print Preview</a></li>
+                        <li class="dropdown-submenu"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Download as</a>
+                            <ul id="download_menu" class="dropdown-menu">
+                                <li id="download_ipynb"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Notebook (.ipynb)</a></li>
+                                <li id="download_script"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Python (.py)</a></li>
+                                <li id="download_html"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">HTML (.html)</a></li>
+                                <li id="download_slides"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Reveal.js slides (.html)</a></li>
+                                <li id="download_markdown"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Markdown (.md)</a></li>
+                                <li id="download_rst"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">reST (.rst)</a></li>
+                                <li id="download_latex"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">LaTeX (.tex)</a></li>
+                                <li id="download_pdf"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">PDF via LaTeX (.pdf)</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu hidden"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Deploy as</a>
+                            <ul id="deploy_menu" class="dropdown-menu"></ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li id="trust_notebook" title="Trust the output of this notebook">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Trust Notebook</a></li>
+                        <li class="divider"></li>
+                        <li id="close_and_halt" title="Shutdown this notebook&#39;s kernel, and close this window">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Close and Halt</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" class="dropdown-toggle" data-toggle="dropdown">Edit</a>
+                    <ul id="edit_menu" class="dropdown-menu">
+                        <li id="cut_cell"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Cut Cells</a></li>
+                        <li id="copy_cell"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Copy Cells</a></li>
+                        <li id="paste_cell_above" class="disabled"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Paste Cells Above</a></li>
+                        <li id="paste_cell_below" class="disabled"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Paste Cells Below</a></li>
+                        <li id="paste_cell_replace" class="disabled"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Paste Cells &amp; Replace</a></li>
+                        <li id="delete_cell"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Delete Cells</a></li>
+                        <li id="undelete_cell" class="disabled"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Undo Delete Cells</a></li>
+                        <li class="divider"></li>
+                        <li id="split_cell"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Split Cell</a></li>
+                        <li id="merge_cell_above"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Merge Cell Above</a></li>
+                        <li id="merge_cell_below"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Merge Cell Below</a></li>
+                        <li class="divider"></li>
+                        <li id="move_cell_up"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Move Cell Up</a></li>
+                        <li id="move_cell_down"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Move Cell Down</a></li>
+                        <li class="divider"></li>
+                        <li id="edit_nb_metadata"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Edit Notebook Metadata</a></li>
+                        <li class="divider"></li>
+                        <li id="find_and_replace"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#"> Find and Replace </a></li>
+                        <li class="divider"></li>
+                        <li id="cut_cell_attachments"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Cut Cell Attachments</a></li>
+                        <li id="copy_cell_attachments"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Copy Cell Attachments</a></li>
+                        <li id="paste_cell_attachments" class="disabled"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Paste Cell Attachments</a></li>
+                        <li class="divider"></li>
+                        <li id="insert_image" class="disabled"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#"> Insert Image </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" class="dropdown-toggle" data-toggle="dropdown">View</a>
+                    <ul id="view_menu" class="dropdown-menu">
+                        <li id="toggle_header" title="Show/Hide the logo and notebook title (above menu bar)">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Toggle Header</a>
+                        </li>
+                        <li id="toggle_toolbar" title="Show/Hide the action icons (below menu bar)">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Toggle Toolbar</a>
+                        </li>
+                        <li id="toggle_line_numbers" title="Show/Hide line numbers in cells">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Toggle Line Numbers</a>
+                        </li>
+                        <li id="menu-cell-toolbar" class="dropdown-submenu">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Cell Toolbar</a>
+                            <ul class="dropdown-menu" id="menu-cell-toolbar-submenu"><li data-name="None"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">None</a></li><li data-name="Edit%20Metadata"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Edit Metadata</a></li><li data-name="Raw%20Cell%20Format"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Raw Cell Format</a></li><li data-name="Slideshow"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Slideshow</a></li><li data-name="Attachments"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Attachments</a></li><li data-name="Tags"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Tags</a></li></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" class="dropdown-toggle" data-toggle="dropdown">Insert</a>
+                    <ul id="insert_menu" class="dropdown-menu">
+                        <li id="insert_cell_above" title="Insert an empty Code cell above the currently active cell">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Insert Cell Above</a></li>
+                        <li id="insert_cell_below" title="Insert an empty Code cell below the currently active cell">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Insert Cell Below</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" class="dropdown-toggle" data-toggle="dropdown">Cell</a>
+                    <ul id="cell_menu" class="dropdown-menu">
+                        <li id="run_cell" title="Run this cell, and move cursor to the next one">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Run Cells</a></li>
+                        <li id="run_cell_select_below" title="Run this cell, select below">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Run Cells and Select Below</a></li>
+                        <li id="run_cell_insert_below" title="Run this cell, insert below">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Run Cells and Insert Below</a></li>
+                        <li id="run_all_cells" title="Run all cells in the notebook">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Run All</a></li>
+                        <li id="run_all_cells_above" title="Run all cells above (but not including) this cell">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Run All Above</a></li>
+                        <li id="run_all_cells_below" title="Run this cell and all cells below it">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Run All Below</a></li>
+                        <li class="divider"></li>
+                        <li id="change_cell_type" class="dropdown-submenu" title="All cells in the notebook have a cell type. By default, new cells are created as &#39;Code&#39; cells">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Cell Type</a>
+                            <ul class="dropdown-menu">
+                              <li id="to_code" title="Contents will be sent to the kernel for execution, and output will display in the footer of cell">
+                                  <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Code</a></li>
+                              <li id="to_markdown" title="Contents will be rendered as HTML and serve as explanatory text">
+                                  <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Markdown</a></li>
+                              <li id="to_raw" title="Contents will pass through nbconvert unmodified">
+                                  <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Raw NBConvert</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li id="current_outputs" class="dropdown-submenu"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Current Outputs</a>
+                            <ul class="dropdown-menu">
+                                <li id="toggle_current_output" title="Hide/Show the output of the current cell">
+                                    <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Toggle</a>
+                                </li>
+                                <li id="toggle_current_output_scroll" title="Scroll the output of the current cell">
+                                    <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Toggle Scrolling</a>
+                                </li>
+                                <li id="clear_current_output" title="Clear the output of the current cell">
+                                    <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Clear</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="all_outputs" class="dropdown-submenu"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">All Output</a>
+                            <ul class="dropdown-menu">
+                                <li id="toggle_all_output" title="Hide/Show the output of all cells">
+                                    <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Toggle</a>
+                                </li>
+                                <li id="toggle_all_output_scroll" title="Scroll the output of all cells">
+                                    <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Toggle Scrolling</a>
+                                </li>
+                                <li id="clear_all_output" title="Clear the output of all cells">
+                                    <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Clear</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" class="dropdown-toggle" data-toggle="dropdown">Kernel</a>
+                    <ul id="kernel_menu" class="dropdown-menu">
+                        <li id="int_kernel" title="Send Keyboard Interrupt (CTRL-C) to the Kernel">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Interrupt</a>
+                        </li>
+                        <li id="restart_kernel" title="Restart the Kernel">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Restart</a>
+                        </li>
+                        <li id="restart_clear_output" title="Restart the Kernel and clear all output">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Restart &amp; Clear Output</a>
+                        </li>
+                        <li id="restart_run_all" title="Restart the Kernel and re-run the notebook">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Restart &amp; Run All</a>
+                        </li>
+                        <li id="reconnect_kernel" title="Reconnect to the Kernel">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Reconnect</a>
+                        </li>
+                        <li id="shutdown_kernel" title="Shutdown the Kernel">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Shutdown</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li id="menu-change-kernel" class="dropdown-submenu">
+                            <a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Change kernel</a>
+                            <ul class="dropdown-menu" id="menu-change-kernel-submenu"><li id="kernel-submenu-python2"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Python 2</a></li><li id="kernel-submenu-python3"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Python 3</a></li><li id="kernel-submenu-ir"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">R</a></li></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" data-toggle="dropdown" class="dropdown-toggle">Widgets</a><ul id="widget-submenu" class="dropdown-menu"><li title="Save the notebook with the widget state information for static rendering"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Save Notebook Widget State</a></li><li title="Clear the widget state information from the notebook"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Clear Notebook Widget State</a></li><ul class="divider"></ul><li title="Download the widget state as a JSON file"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Download Widget State</a></li><li title="Embed interactive widgets"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Embed Widgets</a></li></ul></li><li class="dropdown"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" class="dropdown-toggle" data-toggle="dropdown">Help</a>
+                    <ul id="help_menu" class="dropdown-menu">
+                        
+                        <li id="notebook_tour" title="A quick tour of the notebook user interface"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">User Interface Tour</a></li>
+                        <li id="keyboard_shortcuts" title="Opens a tooltip with all keyboard shortcuts"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Keyboard Shortcuts</a></li>
+                        <li id="edit_keyboard_shortcuts" title="Opens a dialog allowing you to edit Keyboard shortcuts"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">Edit Keyboard Shortcuts</a></li>
+                        <li class="divider"></li>
+                        
+
+						
+                        
+                            
+                                <li><a rel="noreferrer" href="http://nbviewer.jupyter.org/github/ipython/ipython/blob/3.x/examples/Notebook/Index.ipynb" target="_blank" title="Opens in a new window">
+                                
+                                    <i class="fa fa-external-link menu-icon pull-right"></i>
+                                
+
+                                Notebook Help
+                                </a></li>
+                            
+                                <li><a rel="noreferrer" href="https://help.github.com/articles/markdown-basics/" target="_blank" title="Opens in a new window">
+                                
+                                    <i class="fa fa-external-link menu-icon pull-right"></i>
+                                
+
+                                Markdown
+                                </a></li>
+                            
+                            
+                        
+                        <li id="kernel-help-links" class="divider"></li><li><a target="_blank" title="Opens in a new window" href="https://docs.python.org/2.7?v=20181112043002"><i class="fa fa-external-link menu-icon pull-right"></i><span>Python Reference</span></a></li><li><a target="_blank" title="Opens in a new window" href="https://ipython.org/documentation.html?v=20181112043002"><i class="fa fa-external-link menu-icon pull-right"></i><span>IPython Reference</span></a></li><li><a target="_blank" title="Opens in a new window" href="https://docs.scipy.org/doc/numpy/reference/?v=20181112043002"><i class="fa fa-external-link menu-icon pull-right"></i><span>NumPy Reference</span></a></li><li><a target="_blank" title="Opens in a new window" href="https://docs.scipy.org/doc/scipy/reference/?v=20181112043002"><i class="fa fa-external-link menu-icon pull-right"></i><span>SciPy Reference</span></a></li><li><a target="_blank" title="Opens in a new window" href="https://matplotlib.org/contents.html?v=20181112043002"><i class="fa fa-external-link menu-icon pull-right"></i><span>Matplotlib Reference</span></a></li><li><a target="_blank" title="Opens in a new window" href="http://docs.sympy.org/latest/index.html?v=20181112043002"><i class="fa fa-external-link menu-icon pull-right"></i><span>SymPy Reference</span></a></li><li><a target="_blank" title="Opens in a new window" href="https://pandas.pydata.org/pandas-docs/stable/?v=20181112043002"><i class="fa fa-external-link menu-icon pull-right"></i><span>pandas Reference</span></a></li><li class="divider"></li>
+                        <li title="About Jupyter Notebook"><a id="notebook_about" href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#">About</a></li>
+                        
+                    </ul>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="maintoolbar" class="navbar">
+  <div class="toolbar-inner navbar-inner navbar-nobg">
+    <div id="maintoolbar-container" class="container toolbar"><div class="btn-group" id="save-notbook"><button class="btn btn-default" title="Save and Checkpoint" data-jupyter-action="jupyter-notebook:save-notebook"><i class="fa-save fa"></i></button></div><div class="btn-group" id="insert_above_below"><button class="btn btn-default" title="insert cell below" data-jupyter-action="jupyter-notebook:insert-cell-below"><i class="fa-plus fa"></i></button></div><div class="btn-group" id="cut_copy_paste"><button class="btn btn-default" title="cut selected cells" data-jupyter-action="jupyter-notebook:cut-cell"><i class="fa-cut fa"></i></button><button class="btn btn-default" title="copy selected cells" data-jupyter-action="jupyter-notebook:copy-cell"><i class="fa-copy fa"></i></button><button class="btn btn-default" title="paste cells below" data-jupyter-action="jupyter-notebook:paste-cell-below"><i class="fa-paste fa"></i></button></div><div class="btn-group" id="move_up_down"><button class="btn btn-default" title="move selected cells up" data-jupyter-action="jupyter-notebook:move-cell-up"><i class="fa-arrow-up fa"></i></button><button class="btn btn-default" title="move selected cells down" data-jupyter-action="jupyter-notebook:move-cell-down"><i class="fa-arrow-down fa"></i></button></div><div class="btn-group" id="run_int"><button class="btn btn-default" title="Run" data-jupyter-action="jupyter-notebook:run-cell-and-select-next"><i class="fa-step-forward fa"></i><span class="toolbar-btn-label">Run</span></button><button class="btn btn-default" title="interrupt the kernel" data-jupyter-action="jupyter-notebook:interrupt-kernel"><i class="fa-stop fa"></i></button><button class="btn btn-default" title="restart the kernel (with dialog)" data-jupyter-action="jupyter-notebook:confirm-restart-kernel"><i class="fa-repeat fa"></i></button><button class="btn btn-default" title="restart the kernel, then re-run the whole notebook (with dialog)" data-jupyter-action="jupyter-notebook:confirm-restart-kernel-and-run-all-cells"><i class="fa-forward fa"></i></button></div><select id="cell_type" class="form-control select-xs"><option value="code">Code</option><option value="markdown">Markdown</option><option value="raw">Raw NBConvert</option><option value="heading">Heading</option><option value="multiselect" disabled="disabled" style="display: none;">-</option></select><div class="btn-group"><button class="btn btn-default" title="open the command palette" data-jupyter-action="jupyter-notebook:show-command-palette"><i class="fa-keyboard-o fa"></i></button></div></div>
+  </div>
+</div>
+</div>
+
+<div class="lower-header-bar"></div>
+
+</div>
+
+<div id="site" style="display: block; height: 492px;">
+
+
+<div id="ipython-main-app">
+    <div id="notebook_panel">
+        <div id="notebook" tabindex="-1"><div class="container" id="notebook-container"><div class="cell text_cell unrendered selected" tabindex="2"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.59375px; left: 6px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px; width: 18px; pointer-events: none;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true" style="height: 18px; pointer-events: none;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px; margin-bottom: 0px; border-right-width: 30px; min-height: 79px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 6px; top: 0px; height: 17px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Use this notebook 3-fold:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  * Play with parameters and visualize how (1 + x)^n grows compared to 1 + nx</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  * Compute how much money you will have on day n given the starting cash if you earn x% every day</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  * Determine when you will reach the specified wealth given the starting sum and the percentage you earn every day</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 79px;"></div><div class="CodeMirror-gutters" style="display: none; height: 109px;"></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1"></div></div></div><div class="cell code_cell unselected rendered" tabindex="2"><div class="input"><div class="run_this_cell" title="Run this cell"><i class="fa-step-forward fa"></i></div><div class="prompt input_prompt"><bdi>In</bdi>&nbsp;[2]:</div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.59375px; left: 5.59375px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="width: 18px; pointer-events: none; bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true" style="height: 18px; pointer-events: none;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-width: 731px; margin-bottom: 0px; border-right-width: 30px; min-height: 300px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 5.59375px; top: 0px; height: 17px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">%</span><span class="cm-variable">matplotlib</span> <span class="cm-variable">inline</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">matplotlib</span>.<span class="cm-property">pyplot</span> <span class="cm-keyword">as</span> <span class="cm-variable">plt</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">numpy</span> <span class="cm-keyword">as</span> <span class="cm-variable">np</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># You can play with the range of values for n and with the base 1.02, see what changes</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">sample</span> <span class="cm-operator">=</span> <span class="cm-number">200</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-variable">np</span>.<span class="cm-property">arange</span>(<span class="cm-variable">sample</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># This is used to plot the graph of 1.02^n, it is blue on the picture below</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">y</span> <span class="cm-operator">=</span> <span class="cm-number">1.02</span> <span class="cm-operator">**</span> <span class="cm-variable">x</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">plt</span>.<span class="cm-property">plot</span>(<span class="cm-variable">x</span>, <span class="cm-variable">y</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">plt</span>.<span class="cm-property">xlabel</span>(<span class="cm-string">'n'</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">plt</span>.<span class="cm-property">ylabel</span>(<span class="cm-string">'Money($)'</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># This is used to plot the graph of 1 + 0.02 * n, it is green on the picture below</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">z</span> <span class="cm-operator">=</span> <span class="cm-number">1</span> <span class="cm-operator">+</span> <span class="cm-number">0.02</span> <span class="cm-operator">*</span> <span class="cm-variable">x</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">plt</span>.<span class="cm-property">plot</span>(<span class="cm-variable">x</span>, <span class="cm-variable">z</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">plt</span>.<span class="cm-property">show</span>()</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 300px;"></div><div class="CodeMirror-gutters" style="display: none; height: 330px;"></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output"></div><div class="output"><div class="output_area"><div class="run_this_cell"></div><div class="prompt"></div><div class="output_subarea output_png"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAh4AAAF5CAYAAADQ2iM1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz%0AAAAPYQAAD2EBqD+naQAAIABJREFUeJzt3XeYXGXZx/HvnZC6KZQQQi/SYiehhSIoIq8oIqJAFKVL%0ACYiRjhQBX1SQKkV8pQoEI6gIKB1UEAgkSNGA9FBDAmGTbOpmn/ePZ2I2S9pudufMzH4/13Wu3Tnn%0AzMwdDjv72+c8JVJKSJIklUOXoguQJEmdh8FDkiSVjcFDkiSVjcFDkiSVjcFDkiSVjcFDkiSVjcFD%0AkiSVjcFDkiSVjcFDkiSVjcFDkiSVTUUEj4hYIyJ+ExGTI2JGRDwVEUNanHNmRLxVOn5PRGxYVL2S%0AJKltCg8eEbEi8DAwG9gFGAwcA0xpds4JwJHAocCWQANwV0R0L3vBkiSpzaLoReIi4qfAsJTSDks4%0A5y3g3JTSBaXH/YCJwH4ppdHlqVSSJC2vwls8gN2AJyJidERMjIhxEXHw/IMRsT4wCLhv/r6U0lTg%0AMWBY2auVJEltVgnBYwPgcOB54AvAL4GLI2Lf0vFBQCK3cDQ3sXRMkiRViRWKLoAcfsaklE4tPX4q%0AIj5GDiPXL+F5QQ4kHz4QsQq5v8irwKz2K1WSpJrXE1gPuCul9F57v3glBI+3gfEt9o0Hvlb6/h1y%0AyFiNhVs9BgJPLuY1dwFuaMcaJUnqbL4F3NjeL1oJweNhYJMW+zYBXgNIKb0SEe8AOwFPw387l24F%0AXLqY13wV4Prrr2fw4MEdULLKbeTIkVxwwQVFl6F25DWtLV7P2jF+/Hj23XdfKP0ubW+VEDwuAB6O%0AiJOA0eRAcTBwSLNzLgROiYgXyf8hzgLeAG5dzGvOAhg8eDBDhgxZzCmqJv379/da1hivaW3xetak%0ADumqUHjwSCk9ERF7AD8FTgVeAY5OKd3U7JxzIqI3cAWwIvB34IsppTlF1CxJktqm8OABkFL6M/Dn%0ApZzzI+BH5ahHkiR1jEoYTitJkjoJg4eqwvDhw4suQe3Ma1pbvJ5aVgYPVQU/1GqP17S2eD21rAwe%0AkiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSp%0AbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwe%0AkiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSp%0AbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSpbAwekiSJt96ClDr+fQwekiR1cnPnwtZbw2mn%0Adfx7GTwkSerkbrkFXn8dvv71jn8vg4ckSZ1YSnDeebDTTvCpT3X8+xUePCLi9IhoarH9u9nxHhFx%0AaURMjohpEXFzRAwssmZJkmrFww/DE0/AMceU5/0KDx4lzwKrAYNK23bNjl0IfAnYE/gMsAZwS7kL%0AlCSpFp1/PgweDLvsUp73W6E8b7NUjSmlSS13RkQ/4EBgn5TSX0v7DgDGR8SWKaUxZa5TkqSa8eKL%0A8Mc/whVXQJcyNUVUSovHRhHxZkS8FBHXR8Tapf1DyeHovvknppSeByYAwwqoU5KkmnH++TBgAOy7%0Ab/nesxKCx6PA/sAuwGHA+sDfIqKOfNtlTkppaovnTCwdkyRJbfDuu3D11fC970GvXuV738JvtaSU%0A7mr28NmIGAO8BuwFzFrM0wJY6jQnI0eOpH///gvtGz58OMOHD29jtZIk1YZLL4WmplE8/PAovvKV%0ABfvr6+s79H0jlWOaslYqhY97gHtL20rNWz0i4lXggpTSRYt5/hBg7NixYxkyZEgZKpYkqXo0NMA6%0A6+RbLBe1+E06btw4hg4dCjA0pTSuvd+7Em61LCQi+gAfAd4CxgKNwE7Njm8MrAM8UkiBkiRVuauu%0Agvp6GDmy/O9d+K2WiDgXuI18e2VN4Axy2LgppTQ1Iq4Ezo+IKcA04GLgYUe0SJLUeo2NuVPp3nvD%0AeuuV//0LDx7AWsCNwCrAJOAhYOuU0nul4yOBecDNQA/gTmBEAXVKklT1br4ZXn0V/vCHYt6/8OCR%0AUlpiT8+U0mzgqNImSZLaKCU45xzYeWf49KeLqaHw4CFJksrj/vvhySfhnnuKq6HiOpdKkqSOcc45%0AuaVjp52Wfm5HscVDkqRO4Ikn4O674cYbIaK4OmzxkCSpE/jJT2DDDWGvvYqtwxYPSZJq3L//Db//%0APfz619C1a7G12OIhSVKN++lPYa214NvfLroSWzwkSappr7yS+3Wcdx507150NbZ4SJJU0849F1Za%0ACQ45pOhKMoOHJEk16u2387osI0dC795FV5MZPCRJqlHnnw89esARRxRdyQIGD0mSatD778Pll8OI%0A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"></div></div></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div><div class="cell code_cell unselected rendered" tabindex="2"><div class="input"><div class="run_this_cell" title="Run this cell"><i class="fa-step-forward fa"></i></div><div class="prompt input_prompt"><bdi>In</bdi>&nbsp;[3]:</div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.59375px; left: 6px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="width: 18px; pointer-events: none; bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true" style="height: 18px; pointer-events: none;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-width: 857.062px; margin-bottom: 0px; border-right-width: 30px; min-height: 232px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 6px; top: 0px; height: 17px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Computes how much money you will have on day *day*, if you start with *starting_amount* of cash</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># and earn *earn_percent* percents of what you already have every day.</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">HowMuchMoney</span>(<span class="cm-variable">starting_amount</span>, <span class="cm-variable">earn_percent</span>, <span class="cm-variable">day</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-variable">day_multiplier</span> <span class="cm-operator">=</span> <span class="cm-number">1</span> <span class="cm-operator">+</span> (<span class="cm-variable">earn_percent</span> <span class="cm-operator">/</span> <span class="cm-number">100.0</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-keyword">return</span> <span class="cm-variable">starting_amount</span> <span class="cm-operator">*</span> (<span class="cm-variable">day_multiplier</span> <span class="cm-operator">**</span> (<span class="cm-variable">day</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">PrintExample</span>(<span class="cm-variable">starting_amount</span>, <span class="cm-variable">earn_percent</span>, <span class="cm-variable">day</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-keyword">print</span>(<span class="cm-string">"If you start with $%d and earn %d%% each day, you will have more than $%.0f on day %d!"</span> <span class="cm-operator">%</span> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">          (<span class="cm-variable">starting_amount</span>, <span class="cm-variable">earn_percent</span>, <span class="cm-variable">HowMuchMoney</span>(<span class="cm-variable">starting_amount</span>, <span class="cm-variable">earn_percent</span>, <span class="cm-variable">day</span>), <span class="cm-variable">day</span>))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Prints what will happen by day 350 if you start with $1000 and earn 2% every day</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Feel free to play with the parameters</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">PrintExample</span>(<span class="cm-number">1000</span>, <span class="cm-number">2</span>, <span class="cm-number">350</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 232px;"></div><div class="CodeMirror-gutters" style="display: none; height: 262px;"></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output"></div><div class="output"><div class="output_area"><div class="run_this_cell"></div><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>If you start with $1000 and earn 2% each day, you will have more than $1003367 on day 350!
+</pre></div></div></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div><div class="cell code_cell unselected rendered" tabindex="2"><div class="input"><div class="run_this_cell" title="Run this cell"><i class="fa-step-forward fa"></i></div><div class="prompt input_prompt"><bdi>In</bdi>&nbsp;[4]:</div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.59375px; left: 6px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="width: 18px; pointer-events: none; bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true" style="height: 18px; pointer-events: none; display: block; right: 0px; left: 0px;"><div style="height: 100%; min-height: 1px; width: 1025px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-width: 1025px; margin-bottom: 0px; border-right-width: 30px; min-height: 317px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 6px; top: 0px; height: 17px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Compute the number of the first day when your wealth will exceed *target_amount*,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># if you start with *starting_amount* of cash and earn *earn_percent* percents every day</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">DayToReachTarget</span>(<span class="cm-variable">starting_amount</span>, <span class="cm-variable">earn_percent</span>, <span class="cm-variable">target_amount</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-variable">day</span> <span class="cm-operator">=</span> <span class="cm-number">1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-variable">amount</span> <span class="cm-operator">=</span> <span class="cm-variable">starting_amount</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-variable">day_multiplier</span> <span class="cm-operator">=</span> (<span class="cm-number">1</span> <span class="cm-operator">+</span> (<span class="cm-variable">earn_percent</span>) <span class="cm-operator">/</span> <span class="cm-number">100.0</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-keyword">while</span> <span class="cm-variable">amount</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">target_amount</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        <span class="cm-variable">day</span> <span class="cm-operator">+=</span> <span class="cm-number">1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        <span class="cm-variable">amount</span> <span class="cm-operator">=</span> <span class="cm-variable">amount</span> <span class="cm-operator">*</span> <span class="cm-variable">day_multiplier</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-keyword">return</span> <span class="cm-variable">day</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">PrintFirstDay</span>(<span class="cm-variable">starting_amount</span>, <span class="cm-variable">earn_percent</span>, <span class="cm-variable">target_amount</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-keyword">print</span>(<span class="cm-string">"If you start with $%d and earn %d%% each day, you will have more than $%d on day %d for the first time!"</span> <span class="cm-operator">%</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">          (<span class="cm-variable">starting_amount</span>, <span class="cm-variable">earn_percent</span>, <span class="cm-variable">target_amount</span>, <span class="cm-variable">DayToReachTarget</span>(<span class="cm-variable">starting_amount</span>, <span class="cm-variable">earn_percent</span>, <span class="cm-variable">target_amount</span>)))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Prints when you will get more than $1000000 for the first time, if you start with $1000</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># and earn 2% every day.</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">PrintFirstDay</span>(<span class="cm-number">1000</span>, <span class="cm-number">2</span>, <span class="cm-number">1000000</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 317px;"></div><div class="CodeMirror-gutters" style="display: none; height: 347px;"></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output"></div><div class="output"><div class="output_area"><div class="run_this_cell"></div><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>If you start with $1000 and earn 2% each day, you will have more than $1000000 on day 350 for the first time!
+</pre></div></div></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div></div><div class="end_space"></div></div>
+        <div id="tooltip" class="ipython_tooltip" style="display:none"><div class="tooltipbuttons"><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" role="button" class="ui-button"><span class="ui-icon ui-icon-close">Close</span></a><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" class="ui-corner-all" role="button" id="expanbutton" title="Grow the tooltip vertically (press shift-tab twice)"><span class="ui-icon ui-icon-plus">Expand</span></a><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" role="button" class="ui-button" title="show the current docstring in pager (press shift-tab 4 times)"><span class="ui-icon ui-icon-arrowstop-l-n">Open in Pager</span></a><a href="https://ikeekusbhvhenozmbzndmx.coursera-apps.org/notebooks/Bernoullis%20Inequality-Copy1.ipynb#" role="button" class="ui-button" title="Tooltip will linger for 10 seconds while you type" style="display: none;"><span class="ui-icon ui-icon-clock">Close</span></a></div><div class="pretooltiparrow"></div><div class="tooltiptext smalltooltip"></div></div>
+    </div>
+</div>
+
+
+
+</div>
+
+
+
+<div id="pager" class="ui-resizable">
+    <div id="pager-contents">
+        <div id="pager-container" class="container"></div>
+    </div>
+    <div id="pager-button-area"><a role="button" title="Open the pager in an external window" class="ui-button"><span class="ui-icon ui-icon-extlink"></span></a><a role="button" title="Close the pager" class="ui-button"><span class="ui-icon ui-icon-close"></span></a></div>
+<div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div></div>
+
+
+
+
+
+
+<script type="text/javascript">
+    sys_info = {"notebook_version": "5.6.0", "notebook_path": "/opt/conda/lib/python3.6/site-packages/notebook", "commit_source": "", "commit_hash": "", "sys_version": "3.6.3 |Anaconda, Inc.| (default, Nov  9 2017, 00:19:18) \n[GCC 7.2.0]", "sys_executable": "/opt/conda/bin/python", "sys_platform": "linux", "platform": "Linux-4.14.70-67.55.amzn1.x86_64-x86_64-with-debian-buster-sid", "os_name": "posix", "default_encoding": "UTF-8"};
+</script>
+
+<script src="./Bernoullis Inequality-Copy1_files/encoding.js" charset="utf-8"></script>
+
+<script src="./Bernoullis Inequality-Copy1_files/main.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+<script type="text/javascript">
+  function _remove_token_from_url() {
+    if (window.location.search.length <= 1) {
+      return;
+    }
+    var search_parameters = window.location.search.slice(1).split('&');
+    for (var i = 0; i < search_parameters.length; i++) {
+      if (search_parameters[i].split('=')[0] === 'token') {
+        // remote token from search parameters
+        search_parameters.splice(i, 1);
+        var new_search = '';
+        if (search_parameters.length) {
+          new_search = '?' + search_parameters.join('&');
+        }
+        var new_url = window.location.origin + 
+                      window.location.pathname + 
+                      new_search + 
+                      window.location.hash;
+        window.history.replaceState({}, "", new_url);
+        return;
+      }
+    }
+  }
+  _remove_token_from_url();
+</script>
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal;"></div></div></body></html>
